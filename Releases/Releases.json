@@ -1,0 +1,262 @@
+{
+	"info": {
+		"_postman_id": "427985bb-f6a6-4ed9-81fa-e61e9b61810c",
+		"name": "Releases",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "dev create user token",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "47ced47e-0d71-4cc7-a428-8c5f7036ce05",
+						"exec": [
+							"const jsonData = pm.response.json();",
+							"pm.collectionVariables.set(\"user_token\",jsonData.access_token);",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "e3a116c0-7c5a-4021-a7f5-7c8ef8aabbed",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "client_id",
+							"value": "3TwoVlLAUFrJX33n3HSCSO",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "z5qkvc7ORNms7opUHRROPn",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "provhifi2@noreply.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "nuggets1",
+							"type": "text"
+						},
+						{
+							"key": "scope",
+							"value": "nugsnet:api nugsnet:legacyapi openid profile email",
+							"type": "text"
+						}
+					],
+					"options": {}
+				},
+				"url": {
+					"raw": "https://id.nugsdev.net/connect/token",
+					"protocol": "https",
+					"host": [
+						"id",
+						"nugsdev",
+						"net"
+					],
+					"path": [
+						"connect",
+						"token"
+					],
+					"query": [
+						{
+							"key": "user_token",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get releases",
+			"_postman_id": "f1d83c05-c9fc-4c3c-8c94-ab8d93fb8514",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/releases?artistIds=[\"30319\",\"1053\"]&genre=\"\"&orderBy=publishDate&order=asc&contentType=any&offset=0&limit=12",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"releases"
+					],
+					"query": [
+						{
+							"key": "artistIds",
+							"value": "[\"30319\",\"1053\"]"
+						},
+						{
+							"key": "genre",
+							"value": "\"\""
+						},
+						{
+							"key": "orderBy",
+							"value": "publishDate"
+						},
+						{
+							"key": "order",
+							"value": "asc"
+						},
+						{
+							"key": "contentType",
+							"value": "any"
+						},
+						{
+							"key": "offset",
+							"value": "0"
+						},
+						{
+							"key": "limit",
+							"value": "12"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get recent releases",
+			"_postman_id": "2b03132f-bff1-4cd5-b99f-b802d9be4d6f",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/releases/recent?artistIds=[\"30319\",\"1053\"]&genre=\"\"&contentType=any&offset=0&limit=12",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"releases",
+						"recent"
+					],
+					"query": [
+						{
+							"key": "artistIds",
+							"value": "[\"30319\",\"1053\"]"
+						},
+						{
+							"key": "genre",
+							"value": "\"\""
+						},
+						{
+							"key": "contentType",
+							"value": "any"
+						},
+						{
+							"key": "offset",
+							"value": "0"
+						},
+						{
+							"key": "limit",
+							"value": "12"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get featured releases",
+			"_postman_id": "fe3f4bd6-1e1b-4705-9fff-510524055bf2",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/releases/featured?offset=0&limit=12&total=32&items=[ items ]",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"releases",
+						"featured"
+					],
+					"query": [
+						{
+							"key": "offset",
+							"value": "0"
+						},
+						{
+							"key": "limit",
+							"value": "12"
+						},
+						{
+							"key": "total",
+							"value": "32"
+						},
+						{
+							"key": "items",
+							"value": "[ items ]"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "19225bd9-84aa-4545-bf32-afb09b518b3f",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "f84ac947-3859-4153-b579-5cc6898f7e3f",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "0847bbe9-d228-479b-9500-f7bc03d4d382",
+			"key": "base_url",
+			"value": "https://catalog.nugsdev.net/api/v1",
+			"type": "string"
+		},
+		{
+			"id": "577312aa-a4c5-47b6-8f48-fa1d865d59dc",
+			"key": "user_token",
+			"value": "eyJhbGciOiJSUzI1NiIsImtpZCI6IkNGNEUwMDVFQUQ1RDI3Rjg1NURFMEMzMTZENjM5RTQ0IiwidHlwIjoiYXQrand0In0.eyJuYmYiOjE2NzE2NTMwNTAsImV4cCI6MTY3MTY1MzY1MCwiaXNzIjoiaHR0cHM6Ly9pZC5udWdzZGV2Lm5ldCIsImF1ZCI6WyJudWdzbmV0OmFwaSIsIm51Z3NuZXQ6bGVnYWN5YXBpIl0sImNsaWVudF9pZCI6IjNUd29WbExBVUZySlgzM24zSFNDU08iLCJzdWIiOiIxMTYxMzcyIiwiYXV0aF90aW1lIjoxNjcxNjUzMDUwLCJpZHAiOiJsb2NhbCIsInJvbGUiOiJBZG1pbmlzdHJhdG9yIiwiZW1haWwiOiJwcm92aGlmaTJAbm9yZXBseS5jb20iLCJsZWdhY3lfdG9rZW4iOiIzQzhCNjhGNkY0QThDMDhFRDY2REY0RDY5QkQ0N0I5N0VEMDgzNzFFXzE2NzE2NTM4OTAiLCJsZWdhY3lfdWd1aWQiOiI1YmY4MWQ2YWE5MGM2MTUyZWUzMzYzMzAzYmVjYjUyOSIsImp0aSI6IjhBNzlGOUE3RjM1ODYyNzIxNDczMzI2Q0ZFRUMzRDMyIiwiaWF0IjoxNjcxNjUzMDUwLCJzY29wZSI6WyJlbWFpbCIsIm51Z3NuZXQ6YXBpIiwibnVnc25ldDpsZWdhY3lhcGkiLCJvcGVuaWQiLCJwcm9maWxlIl0sImFtciI6WyJwd2QiXX0.QFbmP0w-j5QuIfoey6UEJN5BbJ2nPiSqJVa1IULgxkJoziZMkgJJboEFlD1sNIFFE2IRYG5KnBiqipjlnOQVP64rfGbZOHchRU-Qk2cgiOOagVmHiD8j_6dES_tC3aKiQLfIUMcSRclWAFArzOigDYXlRJvMja8y6u89_RoSxLSmuoa5exvG7ebEMl8HGGMxVaZUEpJdKi67FR2sD1IWTTgNgZp6tM2vwivtPmiTl1P_qiFgjK_Gw5nmlKzkkqdGdhPWMEF6Xt1fzDIGRlq6cou9XmHIU9QCWHEFKaJl43m6yvwI97xGlL6KpW4oskEmKOiu9Vm9B8tQXA4tOGeu7Q",
+			"type": "string"
+		}
+	]
+}
