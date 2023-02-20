@@ -1,0 +1,233 @@
+{
+	"info": {
+		"_postman_id": "fc46d3ee-a249-44a0-9fcf-2d285cd92fe3",
+		"name": "Banners,Content tray/Home",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "dev create user token Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c12bd25d-73a0-4826-b304-cd3a5c14d106",
+						"exec": [
+							"const jsonData = pm.response.json();",
+							"pm.collectionVariables.set(\"user_token\",jsonData.access_token);",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "da735ead-f427-4c05-9168-e728f4b7d4e5",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "client_id",
+							"value": "3TwoVlLAUFrJX33n3HSCSO",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "z5qkvc7ORNms7opUHRROPn",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "annatest@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "ANNAtest123",
+							"type": "text"
+						},
+						{
+							"key": "scope",
+							"value": "nugsnet:api nugsnet:legacyapi openid profile email",
+							"type": "text"
+						}
+					],
+					"options": {}
+				},
+				"url": {
+					"raw": "https://id.nugsdev.net/connect/token?=",
+					"protocol": "https",
+					"host": [
+						"id",
+						"nugsdev",
+						"net"
+					],
+					"path": [
+						"connect",
+						"token"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Banners",
+			"_postman_id": "d11ee58c-29cb-4c0c-858d-847d7151909d",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "{{user_token}}"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/banners?userId={{user_id}}&Version=null&ClientPlatform=android",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"banners"
+					],
+					"query": [
+						{
+							"key": "userId",
+							"value": "{{user_id}}"
+						},
+						{
+							"key": "Version",
+							"value": "null"
+						},
+						{
+							"key": "ClientPlatform",
+							"value": "android"
+						},
+						{
+							"key": "IsSubscriber",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Content Tray",
+			"_postman_id": "edf3b18f-6243-4303-90f5-00f1389efe1c",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "{{user_token}}"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/content-tray",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"content-tray"
+					],
+					"query": [
+						{
+							"key": "IsSubscriber",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "786861b8-849d-4a32-8da3-9c24ab2c580d",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "bef959ca-8361-42c1-856e-c51f5108a7ef",
+				"type": "text/javascript",
+				"exec": [
+					"var jsonData = JSON.parse(responseBody);",
+					"pm.collectionVariables.set(\"user_token\",jsonData[\"access_token\"]);",
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "df9231af-b91f-4490-91d0-13493b0ea6c6",
+			"key": "base_url",
+			"value": "https://catalog.nugsdev.net/api/v1",
+			"type": "string"
+		},
+		{
+			"id": "f5d407f8-1508-449e-a882-d2ef20b3e312",
+			"key": "token",
+			"value": "eyJhbGciOiJSUzI1NiIsImtpZCI6IkNGNEUwMDVFQUQ1RDI3Rjg1NURFMEMzMTZENjM5RTQ0IiwidHlwIjoiYXQrand0In0.eyJuYmYiOjE2Njk5MDA4OTMsImV4cCI6MTY2OTkwMTQ5MywiaXNzIjoiaHR0cHM6Ly9pZC5udWdzZGV2Lm5ldCIsImF1ZCI6WyJudWdzbmV0OmFwaSIsIm51Z3NuZXQ6bGVnYWN5YXBpIl0sImNsaWVudF9pZCI6IjNUd29WbExBVUZySlgzM24zSFNDU08iLCJzdWIiOiIxODcxNjE0IiwiYXV0aF90aW1lIjoxNjY5OTAwODkzLCJpZHAiOiJsb2NhbCIsImVtYWlsIjoiYW5uYXRlc3RAZ21haWwuY29tIiwibGVnYWN5X3Rva2VuIjoiQjIyQkU4MEI5NzQyQjZGREJEMTJEOTZCN0Y0MzFEMjY5MDNBMDg2OF8xNjY5OTAxNzMzIiwibGVnYWN5X3VndWlkIjoiY2Y3ZjA4ZjNiOWE0NmQ1ZjVkODQ1NjQ1ODlmMTg4ZDQiLCJqdGkiOiI2MTA0OUQ2NDcyNTA4Qjk2RDAzRjQ4QTk0NjE1ODNCQSIsImlhdCI6MTY2OTkwMDg5Mywic2NvcGUiOlsiZW1haWwiLCJudWdzbmV0OmFwaSIsIm51Z3NuZXQ6bGVnYWN5YXBpIiwib3BlbmlkIiwicHJvZmlsZSJdLCJhbXIiOlsicHdkIl19.NYCrPfGmGnRHphmTa6lks6IwC4mpR_dSIHGOd6HdjOJTWS_kU-Bg1YoCzA_ibrW1iSDd5-uAWDbfclyGnEASGidlgkWUcfkDzST-EftODdAtZk-WNLDheD71rIniyLhhqEg80TVZ7WqRHuVJyp-vQLnwBTerMTQTuuS6aJuUeYtbtiRJsNf9-3iYfh-j6Ok5wKBt3F-qXoD7rL3fxwUjUFBNlWJpalYVw7ZJUuJP6l0Va-rpakaGpiyYoRkn7CnjFbdO7Vpqt7mLImMqihNyAQ8a7oLZktF4MmA6aDScc8otBBnbofOFu2AaphbOz74Vwx95yKjR_uUorZMWBDacUg",
+			"type": "string"
+		},
+		{
+			"id": "8d484978-710f-47a4-a96c-7be4d44fea62",
+			"key": "user_id",
+			"value": "1871614",
+			"type": "string"
+		},
+		{
+			"id": "b52028c2-8593-4d13-b8a7-5060ac3e4d52",
+			"key": "user_token",
+			"value": "eyJhbGciOiJSUzI1NiIsImtpZCI6IkNGNEUwMDVFQUQ1RDI3Rjg1NURFMEMzMTZENjM5RTQ0IiwidHlwIjoiYXQrand0In0.eyJuYmYiOjE2NzY4MzkyODYsImV4cCI6MTY3NjgzOTg4NiwiaXNzIjoiaHR0cHM6Ly9pZC5udWdzZGV2Lm5ldCIsImF1ZCI6WyJudWdzbmV0OmFwaSIsIm51Z3NuZXQ6bGVnYWN5YXBpIl0sImNsaWVudF9pZCI6IjNUd29WbExBVUZySlgzM24zSFNDU08iLCJzdWIiOiIxODcxNjE0IiwiYXV0aF90aW1lIjoxNjc2ODM5Mjg2LCJpZHAiOiJsb2NhbCIsImVtYWlsIjoiYW5uYXRlc3RAZ21haWwuY29tIiwibGVnYWN5X3Rva2VuIjoiOUVFQUI3NjdGOUM0RkE1NjU2NDE3QUI2NjA4QTBDNUNGRkNDMjM1Rl8xNjc2ODQwMTI2IiwibGVnYWN5X3VndWlkIjoiY2Y3ZjA4ZjNiOWE0NmQ1ZjVkODQ1NjQ1ODlmMTg4ZDQiLCJqdGkiOiJENDE1NjIxMDk3MzUyRDJFNDdFMDYyMDYwQTlBMjZEQyIsImlhdCI6MTY3NjgzOTI4Niwic2NvcGUiOlsiZW1haWwiLCJudWdzbmV0OmFwaSIsIm51Z3NuZXQ6bGVnYWN5YXBpIiwib3BlbmlkIiwicHJvZmlsZSJdLCJhbXIiOlsicHdkIl19.IGrqJV3ygpiA6TUXVKWJb4xiJlG1T9Fsj9ktuTQu00259YkwR3hg9hj_o-rFsUCISOLu4c0v6S-HSXo1335QQoxIbfGPJBjb_TtCzn-YepJx1PitLif6dqI4HgpIOaoFV0xqnlX67kPsxMaKBQWlrjI1jUBLBri45mW0m6f3AB5FHqR-nAmUYId8NFuL4_5dMo-XBSC0Xstfs8lAtI3cwu2cx0eibaglsjF_8-J0y0M4LHFhM_9ggThL7ZowgBHt0hcK5r4qLsVb0JXxXMBTBGMQ_4rxYSp4Gp-hlopIODyrldJzdw0nXwh9cudT5-gScBRzpszsX9_TppiGlEFgAQ",
+			"type": "string"
+		},
+		{
+			"id": "c5933ec6-618c-49a9-92e1-d55534d5db67",
+			"key": "artist_id",
+			"value": "1479",
+			"type": "string"
+		},
+		{
+			"id": "39a20453-8e30-4ca0-845d-adeb2a1e23e0",
+			"key": "release_id",
+			"value": "22255",
+			"type": "string",
+			"disabled": true
+		}
+	]
+}
