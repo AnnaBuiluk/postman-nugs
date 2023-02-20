@@ -220,34 +220,6 @@
 				}
 			},
 			"response": []
-		},
-		{
-			"name": "Get featured releases Copy",
-			"id": "df386ff6-e08b-4fa8-baea-a5558166bbb6",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{base_url}}/releases/featured?",
-					"host": [
-						"{{base_url}}"
-					],
-					"path": [
-						"releases",
-						"featured"
-					],
-					"query": [
-						{
-							"key": "",
-							"value": null
-						}
-					]
-				}
-			},
-			"response": []
 		}
 	],
 	"event": [
@@ -274,13 +246,13 @@
 	],
 	"variable": [
 		{
-			"id": "9523c83d-8dc7-4529-8ff1-c31068458c42",
+			"id": "5f50071c-f000-4b88-ae14-58cf6f670356",
 			"key": "base_url",
 			"value": "https://catalog.nugsdev.net/api/v1",
 			"type": "string"
 		},
 		{
-			"id": "75ddbbac-68b9-4423-8e07-ca26ca735151",
+			"id": "a24568cd-7144-4e42-804e-565418513bb0",
 			"key": "user_token",
 			"value": "eyJhbGciOiJSUzI1NiIsImtpZCI6IkNGNEUwMDVFQUQ1RDI3Rjg1NURFMEMzMTZENjM5RTQ0IiwidHlwIjoiYXQrand0In0.eyJuYmYiOjE2NzE2NTMwNTAsImV4cCI6MTY3MTY1MzY1MCwiaXNzIjoiaHR0cHM6Ly9pZC5udWdzZGV2Lm5ldCIsImF1ZCI6WyJudWdzbmV0OmFwaSIsIm51Z3NuZXQ6bGVnYWN5YXBpIl0sImNsaWVudF9pZCI6IjNUd29WbExBVUZySlgzM24zSFNDU08iLCJzdWIiOiIxMTYxMzcyIiwiYXV0aF90aW1lIjoxNjcxNjUzMDUwLCJpZHAiOiJsb2NhbCIsInJvbGUiOiJBZG1pbmlzdHJhdG9yIiwiZW1haWwiOiJwcm92aGlmaTJAbm9yZXBseS5jb20iLCJsZWdhY3lfdG9rZW4iOiIzQzhCNjhGNkY0QThDMDhFRDY2REY0RDY5QkQ0N0I5N0VEMDgzNzFFXzE2NzE2NTM4OTAiLCJsZWdhY3lfdWd1aWQiOiI1YmY4MWQ2YWE5MGM2MTUyZWUzMzYzMzAzYmVjYjUyOSIsImp0aSI6IjhBNzlGOUE3RjM1ODYyNzIxNDczMzI2Q0ZFRUMzRDMyIiwiaWF0IjoxNjcxNjUzMDUwLCJzY29wZSI6WyJlbWFpbCIsIm51Z3NuZXQ6YXBpIiwibnVnc25ldDpsZWdhY3lhcGkiLCJvcGVuaWQiLCJwcm9maWxlIl0sImFtciI6WyJwd2QiXX0.QFbmP0w-j5QuIfoey6UEJN5BbJ2nPiSqJVa1IULgxkJoziZMkgJJboEFlD1sNIFFE2IRYG5KnBiqipjlnOQVP64rfGbZOHchRU-Qk2cgiOOagVmHiD8j_6dES_tC3aKiQLfIUMcSRclWAFArzOigDYXlRJvMja8y6u89_RoSxLSmuoa5exvG7ebEMl8HGGMxVaZUEpJdKi67FR2sD1IWTTgNgZp6tM2vwivtPmiTl1P_qiFgjK_Gw5nmlKzkkqdGdhPWMEF6Xt1fzDIGRlq6cou9XmHIU9QCWHEFKaJl43m6yvwI97xGlL6KpW4oskEmKOiu9Vm9B8tQXA4tOGeu7Q",
 			"type": "string"
