@@ -1,0 +1,495 @@
+{
+	"info": {
+		"_postman_id": "a2d05cb4-a5e1-469f-91a9-4e688f917cd0",
+		"name": "Recommend/Recently Played",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Recommendations",
+			"item": [
+				{
+					"name": "User Recommended Shows",
+					"_postman_id": "45fe8153-8ddb-4408-a21b-8d22a279968b",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{user_token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/me/releases/recommendations?limit=20",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"me",
+								"releases",
+								"recommendations"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "20"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Trending For You Artists",
+					"_postman_id": "3b3fa987-198e-436a-bf0a-e29b57da976b",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{user_token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/me/artists/recommendations?limit=20&offset=0",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"me",
+								"artists",
+								"recommendations"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "20",
+									"type": "text"
+								},
+								{
+									"key": "offset",
+									"value": "0",
+									"type": "text"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Trending Releases For User /Home",
+					"_postman_id": "32a2bd51-0b4a-4570-99ef-2d25e3fde432",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{user_token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/me/releases/trending?limit=20&offset=0",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"me",
+								"releases",
+								"trending"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "20",
+									"type": "text"
+								},
+								{
+									"key": "offset",
+									"value": "0",
+									"type": "text"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Trending For You /Home",
+					"_postman_id": "91962d2e-63b7-4f80-9f03-2f112f8c444f",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{user_token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/me/trending?limit=20&offset=0",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"me",
+								"trending"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "20",
+									"type": "text"
+								},
+								{
+									"key": "offset",
+									"value": "0",
+									"type": "text"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Artists You Might Like",
+					"_postman_id": "f803d4a8-186f-4037-b05e-62dae9f147fb",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{user_token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/me/artists/trending?limit=20&offset=0",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"me",
+								"artists",
+								"trending"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "20"
+								},
+								{
+									"key": "offset",
+									"value": "0",
+									"type": "text"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "More artists like/Artists page",
+					"_postman_id": "1f4bef57-8c99-4446-921d-59bbc5394f24",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJSUzI1NiIsImtpZCI6IkNGNEUwMDVFQUQ1RDI3Rjg1NURFMEMzMTZENjM5RTQ0IiwidHlwIjoiYXQrand0In0.eyJuYmYiOjE2NjE1MDM1MzIsImV4cCI6MTY2MTUwNDEzMiwiaXNzIjoiaHR0cHM6Ly9pZC5udWdzZGV2Lm5ldCIsImF1ZCI6WyJudWdzbmV0OmFwaSIsIm51Z3NuZXQ6bGVnYWN5YXBpIl0sImNsaWVudF9pZCI6IjNUd29WbExBVUZySlgzM24zSFNDU08iLCJzdWIiOiIxMTYxMzcyIiwiYXV0aF90aW1lIjoxNjYxNTAzNTMyLCJpZHAiOiJsb2NhbCIsInJvbGUiOiJBZG1pbmlzdHJhdG9yIiwiZW1haWwiOiJwcm92aGlmaTJAbm9yZXBseS5jb20iLCJsZWdhY3lfdG9rZW4iOiI3NkJEMkJGNkMxODVEQkNEMDVCOTExQjA4ODczRkU3MDQ2MUE5RjU0XzE2NjE1MDQzNzIiLCJsZWdhY3lfdWd1aWQiOiI1YmY4MWQ2YWE5MGM2MTUyZWUzMzYzMzAzYmVjYjUyOSIsImp0aSI6IjRDODE4NzcxRjZDODlBMDA4MTFDNTZCNEEyOEE1QzY5IiwiaWF0IjoxNjYxNTAzNTMyLCJzY29wZSI6WyJlbWFpbCIsIm51Z3NuZXQ6YXBpIiwibnVnc25ldDpsZWdhY3lhcGkiLCJvcGVuaWQiLCJwcm9maWxlIl0sImFtciI6WyJwd2QiXX0.BHpVb91R7vKdbxtcXGto8f1lISd7n477f75BYcAXlpIMBeOKNtvnozA3pPOla_PFKzsvAWvsGSL59d8qjp5oUunNTldgpHPa90X5JjmmI0tbHorooRv4ZRkdv0lRiKr1EphWQ5eDKwTOs8i7kCl-L22DISTQUVsFJiQXjUhCux26AzajolvNi3LdS3iRLM8fYu1NxP0_DvlssvN0hjDJxiOtohQ_2aesgHt5GLBgnbqWftiFJ27gRswhDdIjr9ttW7KxfuTrNgSq7yvl4Hbt2galEFrsjAeWspIrAHyG3HeKtJb3JeC1fAfKxeefQyjTq4Zo9f-x0ir6sa1orj_7cA"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/artists/{{artist_id}}/similar?genre=\"\"&limit=20&offset=0",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"artists",
+								"{{artist_id}}",
+								"similar"
+							],
+							"query": [
+								{
+									"key": "genre",
+									"value": "\"\"",
+									"type": "text"
+								},
+								{
+									"key": "limit",
+									"value": "20",
+									"type": "text"
+								},
+								{
+									"key": "offset",
+									"value": "0",
+									"type": "text"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "More shows like this/Show page",
+					"_postman_id": "a27ad788-bea7-418c-b055-295019e9d891",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJSUzI1NiIsImtpZCI6IkNGNEUwMDVFQUQ1RDI3Rjg1NURFMEMzMTZENjM5RTQ0IiwidHlwIjoiYXQrand0In0.eyJuYmYiOjE2NjE1MDM1MzIsImV4cCI6MTY2MTUwNDEzMiwiaXNzIjoiaHR0cHM6Ly9pZC5udWdzZGV2Lm5ldCIsImF1ZCI6WyJudWdzbmV0OmFwaSIsIm51Z3NuZXQ6bGVnYWN5YXBpIl0sImNsaWVudF9pZCI6IjNUd29WbExBVUZySlgzM24zSFNDU08iLCJzdWIiOiIxMTYxMzcyIiwiYXV0aF90aW1lIjoxNjYxNTAzNTMyLCJpZHAiOiJsb2NhbCIsInJvbGUiOiJBZG1pbmlzdHJhdG9yIiwiZW1haWwiOiJwcm92aGlmaTJAbm9yZXBseS5jb20iLCJsZWdhY3lfdG9rZW4iOiI3NkJEMkJGNkMxODVEQkNEMDVCOTExQjA4ODczRkU3MDQ2MUE5RjU0XzE2NjE1MDQzNzIiLCJsZWdhY3lfdWd1aWQiOiI1YmY4MWQ2YWE5MGM2MTUyZWUzMzYzMzAzYmVjYjUyOSIsImp0aSI6IjRDODE4NzcxRjZDODlBMDA4MTFDNTZCNEEyOEE1QzY5IiwiaWF0IjoxNjYxNTAzNTMyLCJzY29wZSI6WyJlbWFpbCIsIm51Z3NuZXQ6YXBpIiwibnVnc25ldDpsZWdhY3lhcGkiLCJvcGVuaWQiLCJwcm9maWxlIl0sImFtciI6WyJwd2QiXX0.BHpVb91R7vKdbxtcXGto8f1lISd7n477f75BYcAXlpIMBeOKNtvnozA3pPOla_PFKzsvAWvsGSL59d8qjp5oUunNTldgpHPa90X5JjmmI0tbHorooRv4ZRkdv0lRiKr1EphWQ5eDKwTOs8i7kCl-L22DISTQUVsFJiQXjUhCux26AzajolvNi3LdS3iRLM8fYu1NxP0_DvlssvN0hjDJxiOtohQ_2aesgHt5GLBgnbqWftiFJ27gRswhDdIjr9ttW7KxfuTrNgSq7yvl4Hbt2galEFrsjAeWspIrAHyG3HeKtJb3JeC1fAfKxeefQyjTq4Zo9f-x0ir6sa1orj_7cA"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/releases/{{release_id}}/similar?artistId=\"\"&genre=\"\"&limit=20&offset=0",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"releases",
+								"{{release_id}}",
+								"similar"
+							],
+							"query": [
+								{
+									"key": "artistId",
+									"value": "\"\"",
+									"type": "text"
+								},
+								{
+									"key": "genre",
+									"value": "\"\"",
+									"type": "text"
+								},
+								{
+									"key": "limit",
+									"value": "20",
+									"type": "text"
+								},
+								{
+									"key": "offset",
+									"value": "0",
+									"type": "text"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Continue Listening/(Recently Played)",
+					"_postman_id": "e5ec6977-a4bc-421c-ae0c-28d66eb38b95",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{user_token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/me/recently-played/releases?limit=30&offset=0",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"me",
+								"recently-played",
+								"releases"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "30",
+									"type": "text"
+								},
+								{
+									"key": "offset",
+									"value": "0",
+									"type": "text"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"_postman_id": "4f83251a-6b22-42fc-adbc-f1fa810d3791"
+		},
+		{
+			"name": "dev create user token",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f6d77a5e-a6c0-485e-8863-5723f8f642d0",
+						"exec": [
+							"const jsonData = pm.response.json();",
+							"pm.collectionVariables.set(\"user_token\",jsonData.access_token);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "7a94d393-67e0-4d42-9991-d66c38725cf1",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "client_id",
+							"value": "3TwoVlLAUFrJX33n3HSCSO",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "z5qkvc7ORNms7opUHRROPn",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "provhifi2@noreply.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "nuggets1",
+							"type": "text"
+						},
+						{
+							"key": "scope",
+							"value": "nugsnet:api nugsnet:legacyapi openid profile email",
+							"type": "text"
+						}
+					],
+					"options": {}
+				},
+				"url": {
+					"raw": "https://id.nugsdev.net/connect/token?=",
+					"protocol": "https",
+					"host": [
+						"id",
+						"nugsdev",
+						"net"
+					],
+					"path": [
+						"connect",
+						"token"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": {}
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "a4ffc4a2-8e41-4080-a0af-f9db40b27f4d",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "1c02decc-921f-4079-a8a5-b658b60ff8f3",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "e602d0ab-8e6c-4d81-8d7b-902e0a3e62f5",
+			"key": "base_url",
+			"value": "https://catalog.nugsdev.net/api/v1",
+			"type": "string"
+		},
+		{
+			"id": "bc72f3c2-1a53-40ef-926e-f9d362f68c29",
+			"key": "user_id",
+			"value": "1607154",
+			"type": "string"
+		},
+		{
+			"id": "1b5774fa-65a6-4c8e-ab50-92783ba5d802",
+			"key": "user_token",
+			"value": "eyJhbGciOiJSUzI1NiIsImtpZCI6IkNGNEUwMDVFQUQ1RDI3Rjg1NURFMEMzMTZENjM5RTQ0IiwidHlwIjoiYXQrand0In0.eyJuYmYiOjE2NzAyMzE4NTUsImV4cCI6MTY3MDIzMjQ1NSwiaXNzIjoiaHR0cHM6Ly9pZC5udWdzZGV2Lm5ldCIsImF1ZCI6WyJudWdzbmV0OmFwaSIsIm51Z3NuZXQ6bGVnYWN5YXBpIl0sImNsaWVudF9pZCI6IjNUd29WbExBVUZySlgzM24zSFNDU08iLCJzdWIiOiIxMTYxMzcyIiwiYXV0aF90aW1lIjoxNjcwMjMxODU1LCJpZHAiOiJsb2NhbCIsInJvbGUiOiJBZG1pbmlzdHJhdG9yIiwiZW1haWwiOiJwcm92aGlmaTJAbm9yZXBseS5jb20iLCJsZWdhY3lfdG9rZW4iOiJGNzk5RDNCMDdCQjQzREM4MjhENDlERTU3MEM4NTI2QzQ3MzhGMDI0XzE2NzAyMzI2OTUiLCJsZWdhY3lfdWd1aWQiOiI1YmY4MWQ2YWE5MGM2MTUyZWUzMzYzMzAzYmVjYjUyOSIsImp0aSI6IkJDQUU3MkY1QTQwOTlGRTNEN0YwMzRDODhERTUyM0E2IiwiaWF0IjoxNjcwMjMxODU1LCJzY29wZSI6WyJlbWFpbCIsIm51Z3NuZXQ6YXBpIiwibnVnc25ldDpsZWdhY3lhcGkiLCJvcGVuaWQiLCJwcm9maWxlIl0sImFtciI6WyJwd2QiXX0.kliRDcoCObRgWn9s9hkHP_Fkgn7fAo-InDaYoN32rzSQZmdvweseynaGxxztm0683ibNGOP6XYiL-e49Tnpd_kPVcwaj-gqfy7oSVHdiIS7BMfKUA7VTtfPm4ND2PsPTVyELbMOlIN1M56mr9g-Uag7sOaKxXWuSHNI5bV6xPt6VNUPI36Hagf3eFeq0XKAQhzR4pHcbTaftEm1H2Yp-byoPqOmapqlngRvnqolczHRtyUdeuAiMx9ILR2_bew9Ftgtk1gO4rixi2ABpSYJWHxevgwqQHXyT4Dv20s2j8ujWrdlKHq4NhVgpW76qb8QFArzI5nh23PeoxyKBf9FDWA",
+			"type": "string"
+		},
+		{
+			"id": "a392fa18-4b7f-44c9-be59-4bed645130f6",
+			"key": "artist_id",
+			"value": "1479",
+			"type": "string"
+		},
+		{
+			"id": "ea5c71a8-004a-442e-b9f3-22e2d516884b",
+			"key": "release_id",
+			"value": "22255",
+			"type": "string"
+		},
+		{
+			"id": "8f5759c5-d562-434b-b245-1bb016ced56c",
+			"key": "token",
+			"value": "",
+			"type": "string",
+			"disabled": true
+		}
+	]
+}
