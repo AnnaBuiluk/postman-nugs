@@ -1,0 +1,228 @@
+{
+	"info": {
+		"_postman_id": "830333d2-9a2c-4a34-a8d1-3def14cfa2d3",
+		"name": "Show bundles",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "dev create user token",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "87b7833e-ce70-450f-9944-e084d18fb055",
+						"exec": [
+							"const jsonData = pm.response.json();",
+							"pm.collectionVariables.set(\"user_token\",jsonData.access_token);",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "606359c3-3ab1-426e-82d5-92f5a3ecbeb6",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "client_id",
+							"value": "3TwoVlLAUFrJX33n3HSCSO",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "z5qkvc7ORNms7opUHRROPn",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "provhifi2@noreply.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "nuggets1",
+							"type": "text"
+						},
+						{
+							"key": "scope",
+							"value": "nugsnet:api nugsnet:legacyapi openid profile email",
+							"type": "text"
+						}
+					],
+					"options": {}
+				},
+				"url": {
+					"raw": "https://id.nugsdev.net/connect/token?=",
+					"protocol": "https",
+					"host": [
+						"id",
+						"nugsdev",
+						"net"
+					],
+					"path": [
+						"connect",
+						"token"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Show details",
+			"_postman_id": "2a899c37-350c-41d6-bbe9-da2c4ce3db27",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/shows/{{show_id}}",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"shows",
+						"{{show_id}}"
+					],
+					"query": [
+						{
+							"key": null,
+							"value": "",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List of bundles associated to the show",
+			"_postman_id": "d2f343eb-5f22-4c99-9f56-068417b169df",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/shows/{{show_id}}/bundles  ",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"shows",
+						"{{show_id}}",
+						"bundles  "
+					],
+					"query": [
+						{
+							"key": null,
+							"value": "",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "The 4K ShowId for the HD one (or vice versa)",
+			"_postman_id": "3e2c4052-7f0a-457f-87cb-b48e2169373e",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/shows/{{show_id}}/showid4k",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"shows",
+						"{{show_id}}",
+						"showid4k"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": {}
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "e6127411-1e77-4010-bc7f-5d977375fef0",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "d5be6fe1-fc35-4aa6-af7f-f1439b26f553",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "229989b7-9467-4cc7-8431-5ca09c57d7c8",
+			"key": "show_id",
+			"value": "589278",
+			"type": "string"
+		},
+		{
+			"id": "6a9b974f-75d9-4720-a64e-c12ac0d500fd",
+			"key": "user_token",
+			"value": "eyJhbGciOiJSUzI1NiIsImtpZCI6IkNGNEUwMDVFQUQ1RDI3Rjg1NURFMEMzMTZENjM5RTQ0IiwidHlwIjoiYXQrand0In0.eyJuYmYiOjE2NzE2MzIxOTEsImV4cCI6MTY3MTYzMjc5MSwiaXNzIjoiaHR0cHM6Ly9pZC5udWdzZGV2Lm5ldCIsImF1ZCI6WyJudWdzbmV0OmFwaSIsIm51Z3NuZXQ6bGVnYWN5YXBpIl0sImNsaWVudF9pZCI6IjNUd29WbExBVUZySlgzM24zSFNDU08iLCJzdWIiOiIxMTYxMzcyIiwiYXV0aF90aW1lIjoxNjcxNjMyMTkxLCJpZHAiOiJsb2NhbCIsInJvbGUiOiJBZG1pbmlzdHJhdG9yIiwiZW1haWwiOiJwcm92aGlmaTJAbm9yZXBseS5jb20iLCJsZWdhY3lfdG9rZW4iOiJFRDA1MUFFRUE0N0ExMTBEQTcyNTcyMDRBRUYzMzk2NzlGQzM1QTFFXzE2NzE2MzMwMzEiLCJsZWdhY3lfdWd1aWQiOiI1YmY4MWQ2YWE5MGM2MTUyZWUzMzYzMzAzYmVjYjUyOSIsImp0aSI6IjlDNUJEMTJGRjRCNEQ4MEJDRkJDOEY5NDBDQkM0MDA3IiwiaWF0IjoxNjcxNjMyMTkxLCJzY29wZSI6WyJlbWFpbCIsIm51Z3NuZXQ6YXBpIiwibnVnc25ldDpsZWdhY3lhcGkiLCJvcGVuaWQiLCJwcm9maWxlIl0sImFtciI6WyJwd2QiXX0.H76EW87qbuq2tQA1R3tTBU5bwdB-ttVQwZf-uUaG2apQaSI__cQAIT_9mFpCsOQC-tHVVHSLBct-_t2XZR7PjcRHnv-hujyBhymD9N3g8NjETPHDp8xDWd15vPJoyCaWfwMQREfiyq705mdCp-x2T3khSUU46QLtT_mPycokoyXkVXtz8oOCJWKoMDVyBqbDSXHtbQOBUvoMpw2dxKEAZjalevrOl-C39zmKwQ85HfafUl9GLWBXizUTGVafj1cytJoEaBhyzuybEVKkNUyzSqxG_guI5OUW8FwJCHHS2NrK1fNawmcEBmCyRrerI2eb5tg6InS6_IOB9JWsnplZQg",
+			"type": "string"
+		},
+		{
+			"id": "7b16449d-636a-4aa8-80d1-f8dc0c6cd1f6",
+			"key": "base_url",
+			"value": "https://catalog.nugsdev.net/api/v1",
+			"type": "string"
+		}
+	]
+}
